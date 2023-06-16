@@ -8,6 +8,13 @@ Use the make command to install
 ```bash
 make install
 ```
+Depois disso no terminal deve aparecer um link http://localhost
+Agora depois de abrir o navegador você verá um formulario onde deve se cadastrar.
+Logo depois será direcionado para um formulario que simula um checkout em que vc escolhe o tipo de pagamento.
+Se for cartão de credito irá aparecer mais campos para preencher.
+Depois de submeter o formulario receberá resposta do resultado da transação sejá negativa ou positiva.
+Atenção alguns campos tem validações então devem aparecer algumas...
+Qualquer duvidas me procura. obg!
 Se houver problemas com AuthSecrets do passport no Linux use commands:
 
 ```bash
