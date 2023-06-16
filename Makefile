@@ -9,7 +9,7 @@ install:
 up:
 	docker-compose up -d
 	docker ps
-
+	make link
 down:
 	docker-compose down
 
@@ -31,3 +31,5 @@ migrate:
 	docker exec -t $(API) php artisan passport:install
 	make seed
 
+link:
+	 echo Clique aqui para abrir http://localhost
