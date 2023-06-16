@@ -1,0 +1,15 @@
+/perfect_pay_test/public/hot
+/perfect_pay_test/public/storage
+/perfect_pay_test/storage/*.key
+/perfect_pay_test/vendor
+/perfect_pay_test/.env
+/perfect_pay_test/.phpunit.result.cache
+/perfect_pay_test/Homestead.json
+/perfect_pay_test/Homestead.yaml
+/perfect_pay_test/npm-debug.log
+/perfect_pay_test/yarn-error.log
+/.idea
+/.vscode
+/.docker
+/data/mysql/
+/data/db/

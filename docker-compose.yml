@@ -1,0 +1,53 @@
+version: "3.7"
+services:
+    api_transfer:
+        image: danyllo431/laravel_php81:latest
+        restart: unless-stopped
+        container_name: perfect_pay_test
+        volumes:
+            - ./perfect_pay_test/:/var/www/html
+        ports:
+            -  80:80
+        depends_on:
+            - mysql
+            - redis
+        networks:
+            - perfect_pay
+
+    mysql:
+        image: mysql:5.7.22
+        restart: unless-stopped
+        environment:
+            MYSQL_DATABASE: api_perfect_pay
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_PASSWORD: root
+            MYSQL_USER: root
+        volumes:
+            - ./data/mysql/dbdata:/var/lib/mysql
+        command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --innodb-buffer-pool-size=4G
+        networks:
+            - perfect_pay
+
+    redis:
+        image: redis:latest
+        networks:
+            - perfect_pay
+
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin:latest
+        ports:
+            - 9001:80
+        environment:
+            - UPLOAD_LIMIT=1G
+            - PMA_ARBITRARY=1
+        links:
+            - mysql
+        networks:
+            - perfect_pay
+
+networks:
+    perfect_pay:
+        driver: bridge
+
+
+
