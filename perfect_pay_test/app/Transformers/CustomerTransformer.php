@@ -19,7 +19,7 @@ class CustomerTransformer extends TransformerAbstract
      *
      * @return array
      */
-    public function transform(Customer $model)
+    public function transform(Customer $model): array
     {
         return [
             'id'         => (int) $model->id,

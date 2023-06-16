@@ -19,15 +19,14 @@ class PaymentMethodTransformer extends TransformerAbstract
      *
      * @return array
      */
-    public function transform(PaymentMethod $model)
+    public function transform(PaymentMethod $model): array
     {
         return [
-            'id'         => (int) $model->id,
-
-            /* place your other model properties here */
-
-            'created_at' => $model->created_at,
-            'updated_at' => $model->updated_at
+            'id'   => (int) $model->id,
+            'name' => $model->name,
+            'qty_due_date' => $model->qty_due_date,
+            'created_at' => $model->created_at->toDateTimeString(),
+            'updated_at' => $model->updated_at->toDateTimeString()
         ];
     }
 }

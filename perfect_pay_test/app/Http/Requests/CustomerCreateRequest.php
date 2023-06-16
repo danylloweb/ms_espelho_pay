@@ -24,8 +24,12 @@ class CustomerCreateRequest extends FormRequest
     public function rules():array
     {
         return [
-            'name'    => 'required',
-            'cpfCnpj' => 'required|unique:customers|min:11|max:14',
+            'name'          => 'required',
+            'cpfCnpj'       => 'required|unique:customers|min:11|max:14',
+            'postalCode'    => 'required',
+            'mobilePhone'   => 'required|numeric',
+            'address'       => 'required',
+            'addressNumber' => 'required|numeric',
         ];
     }
 
@@ -35,11 +39,17 @@ class CustomerCreateRequest extends FormRequest
     public function messages():array
     {
         return [
-            'name.required'    => 'Campo Nome é obrigatório',
-            'cpfCnpj.required' => 'CPF ou CNPJ é obrigatório',
-            'cpfCnpj.unique'   => 'CPF ou CNPJ é já cadatrado',
-            'cpfCnpj.min'      => 'CPF ou CNPJ Formato invalido',
-            'cpfCnpj.max'      => 'CPF ou CNPJ Formato invalido',
+            'name.required'        => 'Campo Nome é obrigatório',
+            'cpfCnpj.required'     => 'CPF ou CNPJ é obrigatório',
+            'cpfCnpj.unique'       => 'CPF ou CNPJ é já cadatrado',
+            'cpfCnpj.min'          => 'CPF ou CNPJ Formato invalido',
+            'cpfCnpj.max'          => 'CPF ou CNPJ Formato invalido',
+            'postalCode.required'  => 'Campo CEP é obrigatório',
+            'mobilePhone.required' => 'Campo Telefone é obrigatório',
+            'mobilePhone.numeric'  => 'Campo telefone inválido',
+            'address.required'     => 'Campo Endereço é obrigatório',
+            'addressNumber.required' => 'Campo Numero do endereço é obrigatório',
+            'addressNumber.numeric'  => 'Campo Numero do endereço é obrigatório',
         ];
     }
 }

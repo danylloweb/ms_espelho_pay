@@ -169,4 +169,14 @@ class AppService
     {
         return new Client(['verify' => false]);
     }
+
+    /**
+     * @param string $string
+     * @return string
+     */
+    public function clearCharacters(string $string): string
+    {
+        $string = str_replace(' ', '', $string);
+        return preg_replace('/[^a-zA-Z0-9]/', '', $string);
+    }
 }

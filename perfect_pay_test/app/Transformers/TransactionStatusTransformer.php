@@ -19,7 +19,7 @@ class TransactionStatusTransformer extends TransformerAbstract
      *
      * @return array
      */
-    public function transform(TransactionStatus $model)
+    public function transform(TransactionStatus $model): array
     {
         return [
             'id'         => (int) $model->id,

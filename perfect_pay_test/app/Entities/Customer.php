@@ -28,7 +28,6 @@ class Customer extends Model implements Transformable
         'postalCode',
         'address',
         'addressNumber',
-        'complement',
         'province',
         'sync',
         'code_asaas'

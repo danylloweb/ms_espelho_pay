@@ -12,7 +12,7 @@ class AppHelper
      * @param $string
      * @return array|string|string[]|null
      */
-    public static function removeSpecialCharacters($string)
+    public static function removeSpecialCharacters($string):string
     {
         return preg_replace('/[^A-Za-z0-9]/', '', $string);
     }

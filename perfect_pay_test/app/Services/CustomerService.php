@@ -46,17 +46,25 @@ class CustomerService extends AppService
     {
         try {
             $customer = $this->repository->skipPresenter()->create($data);
+
             $data_create_integration = [
               'name'              => $customer->name,
               'cpfCnpj'           => $customer->cpfCnpj,
-              'externalReference' => $customer->name,
+              'externalReference' => $customer->id,
               'email'             => $customer->email,
-              'mobilePhone'       => $customer->mobilePhone,
+              'phone'             => $customer->mobilePhone,
+              'postalCode'        => $customer->postalCode,
+              'address'           => $customer->address,
+              'addressNumber'     => $customer->addressNumber,
             ];
+
             $customer_asaas = $this->asaasTransactionIntegration->customerCreate($data_create_integration);
+
             if (isset($customer_asaas['id'])){
+
                 $customer->code_asaas = $customer_asaas['id'];
-                $customer->sync = true;
+                $customer->sync       = true;
+
                 $customer->save();
             }
             return $customer;

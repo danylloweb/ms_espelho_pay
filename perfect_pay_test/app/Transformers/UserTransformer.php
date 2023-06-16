@@ -19,7 +19,7 @@ class UserTransformer extends TransformerAbstract
      *
      * @return array
      */
-    public function transform(User $model)
+    public function transform(User $model): array
     {
         return [
             'id'             => (int)$model->id,

@@ -14,7 +14,7 @@ class AsaasTransactionIntegration extends AsaasIntegration
      * @param $data_payment
      * @return array|StreamInterface
      */
-    public function paymentCreate($data_payment): array|StreamInterface
+    public function paymentCreate(array $data_payment): array|StreamInterface
     {
         $action = 'payment_create';
         return $this->processRequest($action, $data_payment);

@@ -42,7 +42,7 @@ class TransactionsController extends Controller
      * @param TransactionCreateRequest $request
      * @return JsonResponse
      */
-    public function processStore(TransactionCreateRequest $request)
+    public function processStore(TransactionCreateRequest $request):JsonResponse
     {
         $response = $this->service->create($request->all());
         return isset($response['error']) ? response()->json($response, 422) : response()->json($response);

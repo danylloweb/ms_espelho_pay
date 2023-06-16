@@ -21,6 +21,10 @@ class CreateCustomersTable extends Migration
             $table->string('cpfCnpj',14)->comment("documento unico do cliente cpf ou cnpj");
             $table->string('email',200)->nullable()->comment("email do cliente");
             $table->string('mobilePhone',14)->nullable()->comment("telefone movel do cliente");
+            $table->string('postalCode',20);
+            $table->string('address')->nullable();
+            $table->string('province')->nullable();
+            $table->smallInteger('addressNumber')->nullable();
             $table->boolean('sync')->default(false);
             $table->string('code_asaas',100)->nullable();
             $table->timestamps();

@@ -19,13 +19,11 @@ class TransactionTransformer extends TransformerAbstract
      *
      * @return array
      */
-    public function transform(Transaction $model)
+    public function transform(Transaction $model): array
     {
         return [
             'id'                    => (int) $model->id,
-            'payer_id'              => $model->payer_id,
-            'payee_id'              => $model->payee_id,
-            'value'                 => $model->value,
+            'amount'                => $model->value,
             'transaction_status_id' => $model->transaction_status_id,
             'status'                => $model->transactionStatus->name,
             'created_at'            => $model->created_at->toDateTimeString(),
