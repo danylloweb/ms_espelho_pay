@@ -15,6 +15,8 @@ Se for cartão de credito irá aparecer mais campos para preencher.
 Depois de submeter o formulario receberá resposta do resultado da transação sejá negativa ou positiva.
 Atenção alguns campos tem validações então devem aparecer algumas...
 Qualquer duvidas me procura. obg!
+
+
 Se houver problemas com AuthSecrets do passport no Linux use commands:
 
 ```bash
