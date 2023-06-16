@@ -4,15 +4,7 @@ namespace App\Services;
 
 use App\AppHelper;
 use GuzzleHttp\Client;
-use GuzzleHttp\Exception\ClientException;
-use GuzzleHttp\Exception\GuzzleException;
-use Illuminate\Contracts\Auth\Authenticatable;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Log;
-use Psr\Container\ContainerExceptionInterface;
-use Psr\Container\NotFoundExceptionInterface;
-use Psr\Http\Message\StreamInterface;
 
 /**
  * AppService
@@ -25,7 +17,7 @@ class AppService
      * @param int $limit
      * @return mixed
      */
-    public function all(int $limit = 20)
+    public function all(int $limit = 20):mixed
     {
         return $this->repository->paginate($limit);
     }
@@ -35,7 +27,7 @@ class AppService
      * @param bool $skipPresenter
      * @return mixed
      */
-    public function create(array $data, bool $skipPresenter = false)
+    public function create(array $data, bool $skipPresenter = false):mixed
     {
         if (isset($data['password']) && !empty($data['password'])) {
             $data['password'] = bcrypt($data['password']);
@@ -48,7 +40,7 @@ class AppService
      * @param bool $skip_presenter
      * @return mixed
      */
-    public function find($id, bool $skip_presenter = false)
+    public function find($id, bool $skip_presenter = false): mixed
     {
         if ($skip_presenter) {
             return $this->repository->skipPresenter()->find($id);
@@ -62,7 +54,7 @@ class AppService
      * @param bool $skipPresenter
      * @return array|mixed
      */
-    public function update(array $data, $id, bool $skipPresenter = false)
+    public function update(array $data, $id, bool $skipPresenter = false):mixed
     {
         if (isset($data['password']) && !empty($data['password'])) {
             $data['password'] = bcrypt($data['password']);
@@ -79,7 +71,7 @@ class AppService
      * @param bool $presenter
      * @return mixed
      */
-    public function findWhere(array $data, bool $first = false, bool $presenter = false)
+    public function findWhere(array $data, bool $first = false, bool $presenter = false): mixed
     {
         if ($first) {
             return $this->repository->skipPresenter()->findWhere($data)->first();
@@ -94,7 +86,7 @@ class AppService
      * @param array $data
      * @return mixed
      */
-    public function findLast(array $data)
+    public function findLast(array $data): mixed
     {
         return $this->repository->skipPresenter()->findWhere($data)->last();
     }
@@ -121,7 +113,6 @@ class AppService
             'id'    => $user_authenticated->id,
             'name'  => $user_authenticated->name,
             'email' => $user_authenticated->email,
-            'saldo' => number_format($user_authenticated->balance,2,',','.'),
         ];
     }
 
@@ -146,9 +137,9 @@ class AppService
 
     /**
      * @param $value
-     * @return mixed
+     * @return string|array|null
      */
-    public function removeAccentuation($value)
+    public function removeAccentuation($value): string|array|null
     {
         return AppHelper::removeAccentuation($value);
     }
@@ -157,7 +148,7 @@ class AppService
      * @param $date
      * @return false|string
      */
-    public function formatDateDB($date)
+    public function formatDateDB($date): false|string
     {
         return AppHelper::formatDateDB($date);
     }

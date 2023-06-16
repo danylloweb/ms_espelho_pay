@@ -6,7 +6,6 @@ use App\Services\CustomerService;
 use App\Http\Requests\CustomerCreateRequest;
 use App\Validators\CustomerValidator;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 
 /**
  * Class CustomersController.
@@ -37,6 +36,10 @@ class CustomersController extends Controller
         $this->validator = $validator;
     }
 
+    /**
+     * @param CustomerCreateRequest $request
+     * @return JsonResponse
+     */
     public function processStore(CustomerCreateRequest $request): JsonResponse
     {
         $response = $this->service->create($request->all());

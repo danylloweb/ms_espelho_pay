@@ -29,7 +29,7 @@ class CustomerService extends AppService
      * @return mixed
      * @throws RepositoryException
      */
-    public function all(int $limit = 20)
+    public function all(int $limit = 20): mixed
     {
         return $this->repository
             ->resetCriteria()
