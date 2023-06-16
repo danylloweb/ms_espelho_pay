@@ -17,7 +17,7 @@ class AppService
      * @param int $limit
      * @return mixed
      */
-    public function all(int $limit = 20):mixed
+    public function all(int $limit = 20)
     {
         return $this->repository->paginate($limit);
     }
@@ -27,7 +27,7 @@ class AppService
      * @param bool $skipPresenter
      * @return mixed
      */
-    public function create(array $data, bool $skipPresenter = false):mixed
+    public function create(array $data, bool $skipPresenter = false)
     {
         if (isset($data['password']) && !empty($data['password'])) {
             $data['password'] = bcrypt($data['password']);
@@ -40,7 +40,7 @@ class AppService
      * @param bool $skip_presenter
      * @return mixed
      */
-    public function find($id, bool $skip_presenter = false): mixed
+    public function find($id, bool $skip_presenter = false)
     {
         if ($skip_presenter) {
             return $this->repository->skipPresenter()->find($id);
@@ -54,7 +54,7 @@ class AppService
      * @param bool $skipPresenter
      * @return array|mixed
      */
-    public function update(array $data, $id, bool $skipPresenter = false):mixed
+    public function update(array $data, $id, bool $skipPresenter = false)
     {
         if (isset($data['password']) && !empty($data['password'])) {
             $data['password'] = bcrypt($data['password']);
@@ -71,7 +71,7 @@ class AppService
      * @param bool $presenter
      * @return mixed
      */
-    public function findWhere(array $data, bool $first = false, bool $presenter = false): mixed
+    public function findWhere(array $data, bool $first = false, bool $presenter = false)
     {
         if ($first) {
             return $this->repository->skipPresenter()->findWhere($data)->first();
@@ -86,7 +86,7 @@ class AppService
      * @param array $data
      * @return mixed
      */
-    public function findLast(array $data): mixed
+    public function findLast(array $data)
     {
         return $this->repository->skipPresenter()->findWhere($data)->last();
     }
@@ -128,9 +128,9 @@ class AppService
 
     /**
      * @param $value
-     * @return mixed
+     * @return array|string|string[]|null
      */
-    public function removeSpecialCharacters($value)
+    public function removeSpecialCharacters($value):array|string|null
     {
         return AppHelper::removeSpecialCharacters($value);
     }
