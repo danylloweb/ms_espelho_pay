@@ -582,7 +582,7 @@ protected $fieldSearchable = [
 
 Solicitar todos os dados sem filtro por solicitação
 
-`http://apitransfer.local/users`
+`http://perfectpaytest.local/users`
 
 ```json
 [
@@ -612,23 +612,23 @@ Solicitar todos os dados sem filtro por solicitação
 
 Pesquisando no repositório
 
-`http://apitransfer.local/users?search=John%20Doe`
+`http://perfectpaytest.local/users?search=John%20Doe`
 
 or
 
-`http://apitransfer.local/users?search=John&searchFields=name:like`
+`http://perfectpaytest.local/users?search=John&searchFields=name:like`
 
 or
 
-`http://apitransfer.local/users?search=john@gmail.com&searchFields=email:=`
+`http://perfectpaytest.local/users?search=john@gmail.com&searchFields=email:=`
 
 or
 
-`http://apitransfer.local/users?search=name:John Doe;email:john@gmail.com`
+`http://perfectpaytest.local/users?search=name:John Doe;email:john@gmail.com`
 
 or
 
-`http://apitransfer.local/users?search=name:John;email:john@gmail.com&searchFields=name:like;email:=`
+`http://perfectpaytest.local/users?search=name:John;email:john@gmail.com&searchFields=name:like;email:=`
 
 ```json
 [
@@ -645,11 +645,11 @@ or
 
 Você pode usar parâmetros "search" sem parâmetros completos "searchFields".
 
-`http://apitransfer.local/users?search=id:2;age:17;email:john@gmail.com&searchFields='id':=`
+`http://perfectpaytest.local/users?search=id:2;age:17;email:john@gmail.com&searchFields='id':=`
 
 Por padrão, RequestCriteria faz suas consultas usando o operador de comparação **OR** para cada parâmetro de consulta.
 
-`http://apitransfer.local/users?search=age:17;email:john@gmail.com`
+`http://perfectpaytest.local/users?search=age:17;email:john@gmail.com`
 
 O exemplo acima executará a seguinte consulta:
 
@@ -659,12 +659,12 @@ SELECT * FROM users WHERE age = 17 OR email = 'john@gmail.com';
 
 Para que ele faça a consulta usando o **AND**, passe o parâmetro *searchJoin* conforme abaixo:
 
-`http://apitransfer.local/users?search=age:17;email:john@gmail.com&searchJoin=and`
+`http://perfectpaytest.local/users?search=age:17;email:john@gmail.com&searchJoin=and`
 
 
 Campos de filtragem
 
-`http://apitransfer.local/users?filter=id;name`
+`http://perfectpaytest.local/users?filter=id;name`
 
 ```json
 [
@@ -685,7 +685,7 @@ Campos de filtragem
 
 Classificando os resultados
 
-`http://apitransfer.local/users?filter=id;name&orderBy=id&sortedBy=desc`
+`http://perfectpaytest.local/users?filter=id;name&orderBy=id&sortedBy=desc`
 
 ```json
 [
@@ -706,7 +706,7 @@ Classificando os resultados
 
 Classificando através de tabelas relacionadas
 
-`http://apitransfer.local/users?orderBy=posts|title&sortedBy=desc`
+`http://perfectpaytest.local/users?orderBy=posts|title&sortedBy=desc`
 
 A consulta terá algo assim
 
@@ -718,7 +718,7 @@ ORDER BY title
 ...
 ```
 
-`http://apitransfer.local/users?orderBy=posts:custom_id|posts.title&sortedBy=desc`
+`http://perfectpaytest.local/users?orderBy=posts:custom_id|posts.title&sortedBy=desc`
 
 A consulta terá algo assim
 
@@ -730,7 +730,7 @@ ORDER BY posts.title
 ...
 ```
 
-`http://apitransfer.local/users?orderBy=posts:custom_id,other_id|posts.title&sortedBy=desc`
+`http://perfectpaytest.local/users?orderBy=posts:custom_id,other_id|posts.title&sortedBy=desc`
 
 A consulta terá algo assim
 
@@ -744,7 +744,7 @@ ORDER BY posts.title
 
 Classificando várias colunas da mesma forma sortedBy
 
-`http://apitransfer.local/users?orderBy=name;created_at&sortedBy=desc`
+`http://perfectpaytest.local/users?orderBy=name;created_at&sortedBy=desc`
 
 Resultado terá algo assim
 
@@ -771,7 +771,7 @@ Resultado terá algo assim
 
 Classificando a diferença de várias colunas sortedBy
 
-`http://apitransfer.local/users?orderBy=name;created_at&sortedBy=desc;asc`
+`http://perfectpaytest.local/users?orderBy=name;created_at&sortedBy=desc;asc`
 
 Resultado terá algo assim
 
@@ -797,11 +797,11 @@ Resultado terá algo assim
 
 Adicionar relacionamento
 
-`http://apitransfer.local/users?with=groups`
+`http://perfectpaytest.local/users?with=groups`
 
 Entre filtro
 
-`http://apitransfer.local/product?search=price:100,500&searchFields=price:between`
+`http://perfectpaytest.local/product?search=price:100,500&searchFields=price:between`
 
 Resultado terá algo assim
 
@@ -827,7 +827,7 @@ Resultado terá algo assim
 
 Filtro WhereIn
 
-`http://apitransfer.local/product?search=price:300,500&searchFields=price:in`
+`http://perfectpaytest.local/product?search=price:300,500&searchFields=price:in`
 
 Resultado terá algo assim
 

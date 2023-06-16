@@ -2,20 +2,18 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{
-    UsersController,
     TransactionsController,
     CustomersController,
+    UsersController
 };
 Route::get('/', function () {
-    return view('home', ['name' => 'James']);
+    return view('home', ['name' => 'Danyllo']);
 });
 Route::post('customers', [CustomersController::class, 'processStore']);
 Route::post('transactions', [TransactionsController::class, 'processStore']);
 
 Route::group(['middleware' => 'auth:api'], function () {
-    $except = ['except' => ['create', 'edit','delete','update','store']];
-    Route::get('user-authenticated', 'UsersController@getUserLogged');
-    Route::resource('transactionStatuses', 'TransactionStatusesController', $except);
+    Route::get('user-authenticated', [UsersController::class, 'getUserLogged']);
 });
 
-Route::any('*', function () { return ['message' => 'PerfectPay Api OK!', 'error' => false]; });
+Route::any('*', function () {  return view('home', ['name' => 'Danyllo']); });
