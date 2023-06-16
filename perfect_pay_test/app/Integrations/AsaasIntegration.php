@@ -67,10 +67,8 @@ class AsaasIntegration
     }
 
     /**
-     * @param string $resource
-     * @param $params
-     * @param string $method
-     * @param bool $json
+     * @param string $action
+     * @param array $params
      * @return array|StreamInterface
      */
     protected function processRequest(string $action, array $params): array|StreamInterface
@@ -95,11 +93,11 @@ class AsaasIntegration
     }
 
     /**
-     * @param bool $json
      * @param array $params
      * @param array $options
      * @param string $method
      * @param string $endpoint
+     * @param bool $json
      * @return array
      */
     private function send(array $params, array $options, string $method, string $endpoint, bool $json): array

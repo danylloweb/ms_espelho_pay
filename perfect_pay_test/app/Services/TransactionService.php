@@ -84,7 +84,7 @@ class TransactionService extends AppService
      * @param $payment_status
      * @return int
      */
-    private function getTransactionStatusByPaymentStatus($payment_status):int
+    private function getTransactionStatusByPaymentStatus($payment_status): int
     {
         return match ($payment_status) {
             'PENDING' => TransactionStatusEnum::PENDING,
